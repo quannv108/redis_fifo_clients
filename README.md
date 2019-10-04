@@ -12,3 +12,8 @@ Example of using redis fifo client to implement message queue. All will run on d
     sudo chmod +x /usr/local/bin/docker-compose
     sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
+
+
+# Test result:
+* `python-push` + `python-pull` (using redis install from pip)) => delay about 750 - 1000 micro seconds
+* `c++-push` + `c++-pull` (using hiredis) => delay about 400-550 micro seconds
