@@ -8,20 +8,38 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure    
-        
-  push:
+
+  # push:
+  #   build:
+  #     context: ./push
+  #   container_name: 'redis-test-push'
+  #   depends_on:
+  #     - redis
+  #   environment:
+  #     - HOST=redis
+
+  # pull:
+  #   build:
+  #     context: ./pull
+  #   container_name: 'redis-test-pull'
+  #   depends_on:
+  #     - redis
+  #   environment:
+  #     - HOST=redis
+
+  cpush:
     build:
-      context: ./push
-    container_name: 'redis-test-push'
+      context: ./cpush
+    container_name: 'redis-test-cpush'
     depends_on:
       - redis
     environment:
       - HOST=redis
 
-  pull:
+  cpull:
     build:
-      context: ./pull
-    container_name: 'redis-test-pull'
+      context: ./cpull
+    container_name: 'redis-test-cpull'
     depends_on:
       - redis
     environment:
